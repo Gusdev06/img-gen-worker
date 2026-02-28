@@ -2,6 +2,9 @@ FROM runpod/pytorch:2.2.0-py3.10-cuda12.1.1-devel-ubuntu22.04
 
 WORKDIR /app
 
+# Atualizar PyTorch para versao compativel com diffusers recente
+RUN pip install --no-cache-dir --upgrade torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
 # Dependencias Python
 RUN pip install --no-cache-dir \
     diffusers>=0.31.0 \
